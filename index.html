@@ -66,9 +66,15 @@
                     map: map,
                     title: 'You are here'
                 });
+                var userLatLong = { lat: userLatitude + .0001, lng: userLongitude + .0001 };
+                var marker = new google.maps.Marker({
+                    position: userLatLong,
+                    map: map,
+                    title: 'She is here'
+                });
             }, 500);
         }
-        console.log("v1.2255");
+        console.log("v1.2256");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
