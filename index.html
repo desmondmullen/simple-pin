@@ -48,26 +48,24 @@
 
 
         function initMap() {
-            function showPosition(position) {
-                userLatitude = parseFloat(position.coords.latitude);
-                userLongitude = parseFloat(position.coords.longitude);
+
+            setTimeout(function () {
+                console.log("init map");
                 console.log(userLatitude, userLongitude);
-            }
-            console.log("init map");
-            console.log(userLatitude, userLongitude);
-            var myLatLng = { lat: userLatitude, lng: userLongitude };
-            // var myLatLng = { lat: -25.363, lng: 131.044 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: myLatLng
-            });
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: 'Hello World!'
-            });
+                var myLatLng = { lat: userLatitude, lng: userLongitude };
+                // var myLatLng = { lat: -25.363, lng: 131.044 };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: myLatLng
+                });
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hello World!'
+                });
+            }, 3000);
         }
-        console.log("v1.222");
+        console.log("v1.2231");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
