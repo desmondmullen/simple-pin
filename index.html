@@ -46,7 +46,7 @@
             userLatitude = parseFloat(position.coords.latitude);
             userLongitude = parseFloat(position.coords.longitude);
             if (initMapLatLong != userLatitude, userLongitude) {
-                console.log("redoing initMap: " + initMapLatLong, userLatitude, userLongitude);
+                console.log("redoing initMap: " + initMapLatLong + " / " + userLatitude, userLongitude);
                 initMap();
             } else {
                 console.log("show position: " + userLatitude, userLongitude);
@@ -63,7 +63,7 @@
                 var myLatLng = { lat: userLatitude, lng: userLongitude };
                 // var myLatLng = { lat: -25.363, lng: 131.044 };
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
+                    zoom: 16,
                     center: myLatLng
                 });
                 var marker = new google.maps.Marker({
@@ -73,7 +73,7 @@
                 });
             }, 1000);
         }
-        console.log("v1.2252");
+        console.log("v1.2253");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
