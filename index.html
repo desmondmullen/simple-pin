@@ -28,6 +28,9 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
+                userLatitude = parseFloat(showPosition.coords.latitude);
+                userLongitude = parseFloat(showPosition.coords.longitude);
+
             } else {
                 geolocationStatusField.text("Geolocation is not supported by this browser");
             }
@@ -64,7 +67,7 @@
                 title: 'Hello World!'
             });
         }
-        console.log("v1.221");
+        console.log("v1.222");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
