@@ -36,8 +36,8 @@
         var userLatitude;
         var userLongitude;
         function showPosition(position) {
-            userLatitude = position.coords.latitude;
-            userLongitude = position.coords.longitude;
+            userLatitude = parseInt(position.coords.latitude);
+            userLongitude = parseInt(position.coords.longitude);
             // let latitudeLongitude = userLatitude + "," + userLongitude;
             // let mapURL = encodeURI("https://maps.googleapis.com/maps/api/staticmap?center=" + latitudeLongitude + "&zoom=16&size=400x300&sensor=false&key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc");
             console.log("Latitude: " + userLatitude +
@@ -48,6 +48,7 @@
         function initMap() {
             console.log("init map");
             var myLatLng = { lat: userLatitude, lng: userLongitude };
+            // var myLatLng = { lat: -25.363, lng: 131.044 };
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 4,
                 center: myLatLng
@@ -58,7 +59,7 @@
                 title: 'Hello World!'
             });
         }
-        console.log("v1");
+        console.log("v1.1");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
