@@ -27,6 +27,7 @@
     <script>
 
         function initMap() {
+            console.log("init map");
             var myLatLng = { lat: -25.363, lng: 131.044 };
 
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -40,9 +41,11 @@
                 title: 'Hello World!'
             });
         }
+        setTimeout(function () { initMap(); }, 3000);
+        console.log("sup?");
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc">
-    // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
+        // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 </body>
 
