@@ -31,9 +31,9 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
-                userLatitude = parseFloat(showPosition.coords.latitude);
-                userLongitude = parseFloat(showPosition.coords.longitude);
-                console.log(userLatitude, userLongitude);
+                // userLatitude = parseFloat(showPosition.coords.latitude);
+                // userLongitude = parseFloat(showPosition.coords.longitude);
+                // console.log(userLatitude, userLongitude);
             } else {
                 geolocationStatusField.text("Geolocation is not supported by this browser");
             }
@@ -67,7 +67,7 @@
                 });
             }, 3000);
         }
-        console.log("v1.224");
+        console.log("v1.225");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
