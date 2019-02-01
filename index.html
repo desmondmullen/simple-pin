@@ -39,6 +39,8 @@
             }
         }
 
+        getLocation();
+
         function showPosition(position) {
             userLatitude = parseFloat(position.coords.latitude);
             userLongitude = parseFloat(position.coords.longitude);
@@ -65,7 +67,7 @@
                 });
             }, 3000);
         }
-        console.log("v1.2233");
+        console.log("v1.224");
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
         // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
