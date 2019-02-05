@@ -21,7 +21,6 @@
         }
     </style>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPchfMQ9Do2TWSFQTKjKJlitT5y_Fdrdc&callback=initMap">
-                // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 </head>
 
@@ -69,15 +68,115 @@
                     map: map,
                     title: 'You are here'
                 });
-                var userLatLong = { lat: userLatitude + .001, lng: userLongitude + .001 };
+                // var userLatLong = { lat: userLatitude + .001, lng: userLongitude + .001 };
+                // var marker = new google.maps.Marker({
+                //     position: userLatLong,
+                //     map: map,
+                //     title: 'She is here'
+                // });
+            }, 500);
+        }
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var map;
+        var service;
+        var infowindow;
+
+        function initMap() {
+            setTimeout(function () {
+                console.log("init map: " + userLatitude, userLongitude);
+                initMapLatLong = userLatitude, userLongitude;
+                var userLatLong = { lat: userLatitude, lng: userLongitude };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: userLatLong
+                });
                 var marker = new google.maps.Marker({
                     position: userLatLong,
                     map: map,
-                    title: 'She is here'
+                    title: 'You are here'
                 });
+                // var userLatLong = { lat: userLatitude + .001, lng: userLongitude + .001 };
+                // var marker = new google.maps.Marker({
+                //     position: userLatLong,
+                //     map: map,
+                //     title: 'She is here'
+                // });
             }, 500);
+
+            //-------------------
+
+            // var sydney = new google.maps.LatLng(-33.867, 151.195);
+
+            infowindow = new google.maps.InfoWindow();
+
+            // map = new google.maps.Map(
+            //     document.getElementById('map'), {center: sydney, zoom: 15});
+
+            var request = {
+                query: 'Babymoon Cafe',
+                fields: ['name', 'geometry'],
+            };
+
+            service = new google.maps.places.PlacesService(map);
+
+            service.findPlaceFromQuery(request, function (results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                    // map.setCenter(results[0].geometry.location);
+                }
+            });
         }
-        console.log("v1.2257");
+
+        function createMarker(place) {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+            });
+        }
+
+        //#region --------------------------------------------------------
+        // var placeSearch, autocomplete, geocoder;
+
+        // function initAutocomplete() {
+        //     geocoder = new google.maps.Geocoder();
+        //     autocomplete = new google.maps.places.Autocomplete(
+        //         (document.getElementById('autocomplete')), {
+        //             types: ['geocode']
+        //         });
+        //     autocomplete.addListener('place_changed', fillInAddress);
+        // }
+
+        // function codeAddress(address) {
+        //     geocoder.geocode({
+        //         'address': address
+        //     }, function (results, status) {
+        //         if (status == 'OK') {
+        //             // This is the lat and lng results[0].geometry.location
+        //             alert(results[0].geometry.location);
+        //         } else {
+        //             alert('Geocode was not successful for the following reason: ' + status);
+        //         }
+        //     });
+        // }
+
+        // function fillInAddress() {
+        //     var place = autocomplete.getPlace();
+        //     codeAddress(document.getElementById('autocomplete').value);
+        // }
+        //#endregion --------------------------------------------------------
+
+        console.log("v2");
     </script>
 </body>
 
